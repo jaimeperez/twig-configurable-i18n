@@ -56,7 +56,7 @@ class Trans extends Twig_Extensions_Node_Trans
             if (array_key_exists('translation_function_plural', $options) &&
                 is_callable($options['translation_function_plural'])
             ) {
-                $function = $options['tranlation_function_plural'];
+                $function = $options['translation_function_plural'];
                 if (is_array($function)) {
                     $function = $function[0].'::'.$function[1];
                 }
