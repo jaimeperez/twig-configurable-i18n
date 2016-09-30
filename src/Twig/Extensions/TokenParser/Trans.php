@@ -22,13 +22,26 @@ class Trans extends Twig_Extensions_TokenParser_Trans
     public function parse(Twig_Token $token)
     {
         $parsed = parent::parse($token);
-        return new NodeTrans(
-            $parsed->getNode('body'),
-            $parsed->getNode('plural'),
-            $parsed->getNode('count'),
-            $parsed->getNode('notes'),
-            $parsed->getLine(),
-            $parsed->getNodeTag()
-        );
+        try {
+            $body = $parsed->getNode('body');
+        } catch (\Exception $e) {
+            $body = null;
+        }
+        try {
+            $plural = $parsed->getNode('plural');
+        } catch (\Exception $e) {
+            $plural = null;
+        }
+        try {
+            $count = $parsed->getNode('count');
+        } catch (\Exception $e) {
+            $count = null;
+        }
+        try {
+            $notes = $parsed->getNode('notes');
+        } catch (\Exception $e) {
+            $notes = null;
+        }
+        return new NodeTrans($body, $plural, $count, $notes, $parsed->getLine(), $parsed->getNodeTag());
     }
 }
