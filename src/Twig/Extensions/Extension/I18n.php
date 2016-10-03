@@ -9,7 +9,7 @@ namespace JaimePerez\TwigConfigurableI18n\Twig\Extensions\Extension;
 use JaimePerez\TwigConfigurableI18n\Twig\Extensions\TokenParser\Trans;
 use Twig_Extensions_Extension_I18n;
 
-class I18n extends Twig_Extensions_Extension_I18n
+class I18n extends Twig_Extensions_Extension_I18n implements \Twig_Extension_InitRuntimeInterface
 {
 
     /**
@@ -22,17 +22,26 @@ class I18n extends Twig_Extensions_Extension_I18n
      */
     protected $plural = 'ngettext';
 
+
+    /**
+     * @param \Twig_Environment $environment The Twig environment to use with this exception.
+     */
     public function initRuntime(\Twig_Environment $environment)
     {
         if ($environment instanceof \JaimePerez\TwigConfigurableI18n\Twig\Environment) {
             $options = $environment->getOptions();
-            if (array_key_exists('translation_function', $options)) {
+            if (array_key_exists('translation_function', $options) &&
+                is_callable($options['translation_function'], false, $callable)
+            ) {
                 $this->singular = $options['translation_function'];
             }
-            if (array_key_exists('translation_function_plural', $options)) {
+            if (array_key_exists('translation_function_plural', $options) &&
+                is_callable($options['translation_function_plural'], false, $callable)
+            ) {
                 $this->plural = $options['translation_function_plural'];
             }
         }
+
         parent::initRuntime($environment);
     }
 
@@ -55,10 +64,37 @@ class I18n extends Twig_Extensions_Extension_I18n
      */
     public function getFilters()
     {
-
         return array(
-            new \Twig_SimpleFilter('trans', $this->singular),
-            new \Twig_SimpleFilter('transchoice', $this->plural)
+            new \Twig_SimpleFilter('trans', array($this, 'translateSingular')),
+            new \Twig_SimpleFilter('transchoice', array($this, 'translatePlural')),
         );
+    }
+
+
+    /**
+     * Wrapper around the given callable we have to use to translate singular strings.
+     *
+     * Defaults to gettext().
+     *
+     * @return string
+     */
+    public function translateSingular()
+    {
+        $args = func_get_args();
+        return call_user_func_array($this->singular, $args);
+    }
+
+
+    /**
+     * Wrapper around the given callable we have to use to translate plural strings.
+     *
+     * Defaults to ngettext().
+     *
+     * @return string
+     */
+    public function translatePlural()
+    {
+        $args = func_get_args();
+        return call_user_func_array($this->plural, $args);
     }
 }
