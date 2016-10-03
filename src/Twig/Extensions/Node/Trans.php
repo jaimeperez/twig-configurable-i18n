@@ -44,25 +44,17 @@ class Trans extends Twig_Extensions_Node_Trans
             $options = $env->getOptions();
             $source = $compiler->getSource();
             if (array_key_exists('translation_function', $options) &&
-                is_callable($options['translation_function'])
+                is_callable($options['translation_function'], false, $callable)
             ) {
-                $function = $options['translation_function'];
-                if (is_array($function)) {
-                    $function = $function[0].'::'.$function[1];
-                }
-                $source = preg_replace('/([^\w_$])gettext\(/', '$1'.$function.'(', $source);
+                $source = preg_replace('/([^\w_$])gettext\(/', '$1'.$callable.'(', $source);
                 $property->setValue($compiler, $source);
             }
             if (array_key_exists('translation_function_plural', $options) &&
-                is_callable($options['translation_function_plural'])
+                is_callable($options['translation_function_plural'], false, $callable)
             ) {
-                $function = $options['translation_function_plural'];
-                if (is_array($function)) {
-                    $function = $function[0].'::'.$function[1];
-                }
                 $source = preg_replace(
                     '/([^\w_$])ngettext\(/',
-                    '$1'.$function.'(',
+                    '$1'.$callable.'(',
                     $source
                 );
                 $property->setValue($compiler, $source);
