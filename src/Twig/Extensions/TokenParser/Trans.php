@@ -16,7 +16,7 @@ class Trans extends \Twig\Extensions\TokenParser\TransTokenParser
      *
      * @param \Twig\Token $token A \Twig\Token instance
      *
-     * @return NodeTrans A \Twig\Node instance
+     * @return \Twig\Node\Node A \Twig\Node\Node instance
      */
     public function parse(Token $token)
     {
@@ -25,6 +25,9 @@ class Trans extends \Twig\Extensions\TokenParser\TransTokenParser
         $plural = ($parsed->hasNode('plural')) ? $parsed->getNode('plural') : null;
         $count = ($parsed->hasNode('count')) ? $parsed->getNode('count') : null;
         $notes = ($parsed->hasNode('notes')) ? $parsed->getNode('notes') : null;
-        return new NodeTrans($body, $plural, $count, $notes, $parsed->getTemplateLine(), $parsed->getNodeTag());
+
+        /** @var \Twig\Node\Node $retval */
+        $retval = new NodeTrans($body, $plural, $count, $notes, $parsed->getTemplateLine(), $parsed->getNodeTag());
+        return $retval;
     }
 }

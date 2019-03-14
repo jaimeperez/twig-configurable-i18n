@@ -27,10 +27,10 @@ class Environment extends \Twig\Environment
      *  * translation_function_plural: the name of a function to translate a message in plural.
      *
      * @see \Twig\Environment::__construct()
-     * @param \Twig\Loader\LoaderInterface|null $loader A Twig_LoaderInterface instance.
+     * @param \Twig\Loader\LoaderInterface $loader A Twig_LoaderInterface instance.
      * @param array                      $options An array of options.
      */
-    public function __construct(\Twig\Loader\LoaderInterface $loader = null, $options = [])
+    public function __construct(\Twig\Loader\LoaderInterface $loader, $options = [])
     {
         parent::__construct($loader, $options);
         $this->options = $options;

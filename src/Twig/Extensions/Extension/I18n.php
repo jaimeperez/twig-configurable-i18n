@@ -32,7 +32,7 @@ class I18n extends \Twig\Extensions\I18nExtension
     /**
      * Returns the token parser instances to add to the existing list.
      *
-     * @return array An array of \Twig\TokenParserInterface or \Twig\TokenParserBrokerInterface instances
+     * @return \Twig\TokenParser\TokenParserInterface[]
      */
     public function getTokenParsers()
     {
@@ -43,7 +43,7 @@ class I18n extends \Twig\Extensions\I18nExtension
     /**
      * Returns a list of filters to add to the existing list.
      *
-     * @return array An array of filters
+     * @return \Twig\TwigFilter[] An array of filters
      */
     public function getFilters()
     {
