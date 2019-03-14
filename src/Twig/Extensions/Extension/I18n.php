@@ -7,9 +7,8 @@
 namespace JaimePerez\TwigConfigurableI18n\Twig\Extensions\Extension;
 
 use JaimePerez\TwigConfigurableI18n\Twig\Extensions\TokenParser\Trans;
-use Twig_Extensions_Extension_I18n;
 
-class I18n extends Twig_Extensions_Extension_I18n
+class I18n extends \Twig\Extensions\I18nExtension
 {
 
     /** @var array */
@@ -24,17 +23,17 @@ class I18n extends Twig_Extensions_Extension_I18n
      */
     public function __construct()
     {
-        $this->filters = array(
-            new \Twig_SimpleFilter('trans', array($this, 'translateSingular'), ['needs_environment' => true]),
-            new \Twig_SimpleFilter('transchoice', array($this, 'translatePlural'), ['needs_environment' => true]),
-        );
+        $this->filters = [
+            new \Twig\TwigFilter('trans', [$this, 'translateSingular'], ['needs_environment' => true]),
+            new \Twig\TwigFilter('transchoice', [$this, 'translatePlural'], ['needs_environment' => true]),
+        ];
     }
 
 
     /**
      * Returns the token parser instances to add to the existing list.
      *
-     * @return array An array of Twig_TokenParserInterface or Twig_TokenParserBrokerInterface instances
+     * @return array An array of \Twig\TokenParserInterface or \Twig\TokenParserBrokerInterface instances
      */
     public function getTokenParsers()
     {
