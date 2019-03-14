@@ -11,11 +11,10 @@ namespace JaimePerez\TwigConfigurableI18n\Twig;
 
 class Environment extends \Twig\Environment
 {
-
     /**
      * @var array The array of options passed to the constructor.
      */
-    protected $options = array();
+    protected $options = [];
 
 
     /**

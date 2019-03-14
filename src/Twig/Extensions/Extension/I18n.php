@@ -10,7 +10,6 @@ use JaimePerez\TwigConfigurableI18n\Twig\Extensions\TokenParser\Trans;
 
 class I18n extends \Twig\Extensions\I18nExtension
 {
-
     /** @var array */
     protected $filters = [];
 
@@ -37,7 +36,7 @@ class I18n extends \Twig\Extensions\I18nExtension
      */
     public function getTokenParsers()
     {
-        return array(new Trans());
+        return [new Trans()];
     }
 
 
