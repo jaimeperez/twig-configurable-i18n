@@ -16,7 +16,7 @@
         }
     },
     "require": {
-		"twig/extensions": "^1.3"
+		"twig/extensions": "^1.5"
     },
     "support": {
         "issues": "https://github.com/jaimeperez/twig-configurable-i18n/issues",
