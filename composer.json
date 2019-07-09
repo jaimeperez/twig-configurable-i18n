@@ -1,5 +1,5 @@
 {
-    "name": "jaimeperez/twig-configurable-i18n",
+    "name": "simplesamlphp/twig-configurable-i18n",
     "description": "This is an extension on top of Twig's i18n extension, allowing you to customize which functions to use for translations.",
     "type": "project",
     "keywords": [ "twig", "extension", "i18n", "internationalization", "translation", "gettext" ],
@@ -23,7 +23,7 @@
         "twig/twig": "^1.37 || ^2.7"
     },
     "support": {
-        "issues": "https://github.com/jaimeperez/twig-configurable-i18n/issues",
-        "source": "https://github.com/jaimeperez/twig-configurable-i18n"
+        "issues": "https://github.com/simplesamlphp/twig-configurable-i18n/issues",
+        "source": "https://github.com/simplesamlphp/twig-configurable-i18n"
     }
 }
