@@ -5,7 +5,7 @@
  * @author Jaime Pérez Crespo
  */
 
-namespace JaimePerez\TwigConfigurableI18n\Twig\Extensions\Node;
+namespace SimpleSAML\TwigConfigurableI18n\Twig\Extensions\Node;
 
 use ReflectionClass;
 use Twig\Compiler;
@@ -15,7 +15,7 @@ class Trans extends \Twig\Extensions\Node\TransNode
     /**
      * Compiles the node to PHP.
      *
-     * If JaimePerez\TwigConfigurableI18n\Twig\Environment was used to configure Twig, and the version of
+     * If SimpleSAML\TwigConfigurableI18n\Twig\Environment was used to configure Twig, and the version of
      * Twig_Extensions_Extension_I18n allows it, we will try to change all calls to the default translation methods
      * to whatever is configured in the environment.
      *
@@ -39,8 +39,8 @@ class Trans extends \Twig\Extensions\Node\TransNode
 
         // now, if we have proper configuration, rename the calls to gettext with the ones configured in the environment
         $env = $compiler->getEnvironment();
-        if (is_a($env, \JaimePerez\TwigConfigurableI18n\Twig\Environment::class)) {
-            /** @var \JaimePerez\TwigConfigurableI18n\Twig\Environment $env */
+        if (is_a($env, \SimpleSAML\TwigConfigurableI18n\Twig\Environment::class)) {
+            /** @var \SimpleSAML\TwigConfigurableI18n\Twig\Environment $env */
             $options = $env->getOptions();
             $source = $compiler->getSource();
             if (array_key_exists('translation_function', $options) &&

@@ -4,9 +4,9 @@
  *
  * @author Jaime Pérez Crespo
  */
-namespace JaimePerez\TwigConfigurableI18n\Twig\Extensions\Extension;
+namespace SimpleSAML\TwigConfigurableI18n\Twig\Extensions\Extension;
 
-use JaimePerez\TwigConfigurableI18n\Twig\Extensions\TokenParser\Trans;
+use SimpleSAML\TwigConfigurableI18n\Twig\Extensions\TokenParser\Trans;
 
 class I18n extends \Twig\Extensions\I18nExtension
 {
@@ -63,7 +63,7 @@ class I18n extends \Twig\Extensions\I18nExtension
         $singular = 'gettext';
         $args = func_get_args();
 
-        /** @var \JaimePerez\TwigConfigurableI18n\Twig\Environment $env */
+        /** @var \SimpleSAML\TwigConfigurableI18n\Twig\Environment $env */
         $env = array_shift($args);
         $options = $env->getOptions();
         if (array_key_exists('translation_function', $options) &&
@@ -87,7 +87,7 @@ class I18n extends \Twig\Extensions\I18nExtension
         $plural = 'ngettext';
         $args = func_get_args();
 
-        /** @var \JaimePerez\TwigConfigurableI18n\Twig\Environment $env */
+        /** @var \SimpleSAML\TwigConfigurableI18n\Twig\Environment $env */
         $env = array_shift($args);
         $options = $env->getOptions();
 

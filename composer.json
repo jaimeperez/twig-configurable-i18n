@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "JaimePerez\\TwigConfigurableI18n\\": "src/"
+            "SimpleSAML\\TwigConfigurableI18n\\": "src/"
         }
     },
     "require": {

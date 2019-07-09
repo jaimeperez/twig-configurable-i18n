@@ -7,7 +7,7 @@
  *
  * @author Jaime Pérez Crespo
  */
-namespace JaimePerez\TwigConfigurableI18n\Twig;
+namespace SimpleSAML\TwigConfigurableI18n\Twig;
 
 class Environment extends \Twig\Environment
 {

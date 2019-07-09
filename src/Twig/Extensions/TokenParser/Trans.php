@@ -4,9 +4,9 @@
  *
  * @author Jaime Pérez Crespo
  */
-namespace JaimePerez\TwigConfigurableI18n\Twig\Extensions\TokenParser;
+namespace SimpleSAML\TwigConfigurableI18n\Twig\Extensions\TokenParser;
 
-use JaimePerez\TwigConfigurableI18n\Twig\Extensions\Node\Trans as NodeTrans;
+use SimpleSAML\TwigConfigurableI18n\Twig\Extensions\Node\Trans as NodeTrans;
 use Twig\Token;
 
 class Trans extends \Twig\Extensions\TokenParser\TransTokenParser

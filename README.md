@@ -30,8 +30,8 @@ First, **create aliases** for two classes so that the ones defined in
 this extension override the default ones:
 
 ```php
-use JaimePerez\TwigConfigurableI18n\Twig\Environment as Twig_Environment;
-use JaimePerez\TwigConfigurableI18n\Twig\Extensions\Extension\I18n as Twig_Extensions_Extension_I18n;
+use SimpleSAML\TwigConfigurableI18n\Twig\Environment as Twig_Environment;
+use SimpleSAML\TwigConfigurableI18n\Twig\Extensions\Extension\I18n as Twig_Extensions_Extension_I18n;
 ```
 
 The first line allows you to redefine the twig environment class, so
