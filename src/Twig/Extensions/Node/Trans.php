@@ -22,7 +22,7 @@ class Trans extends \Twig\Extensions\Node\TransNode
      * @param \Twig\Compiler $compiler A \Twig\Compiler instance
      * @return void
      */
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler) : void
     {
         parent::compile($compiler);
 
