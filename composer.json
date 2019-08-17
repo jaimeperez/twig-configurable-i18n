@@ -16,7 +16,7 @@
         }
     },
     "require": {
-        "twig/extensions": "^1.5"
+        "twig/extensions": "dev-master#ead9818122c8416091f7853b08d15cf56891f73b as 1.5.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
